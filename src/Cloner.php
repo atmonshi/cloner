@@ -110,7 +110,7 @@ class Cloner {
 		if ($relation) $child = true;
 
 		// Notify listeners via callback or event
-		if (method_exists($clone, 'onCloning')) $clone->onCloning($src, $child);
+		if (method_exists($clone, 'onCloning')) $clone->onCloning($src, $child, $relation);
 		$this->events->dispatch('cloner::cloning: '.get_class($src), [$clone, $src]);
 
 		// Do the save
