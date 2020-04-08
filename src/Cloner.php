@@ -61,7 +61,7 @@ class Cloner {
 	public function duplicateTo($model, $connection) {
 		$this->write_connection = $connection; // Store the write database connection
 		$clone = $this->duplicate($model); // Do a normal duplicate
-		$this->write_connection = null; // Null out the connection for next run
+		//$this->write_connection = null; // Null out the connection for next run
 		return $clone;
 	}
 
@@ -165,7 +165,7 @@ class Cloner {
 		// If duplicating between databases, do not duplicate relations. The related
 		// instance may not exist in the other database or could have a different
 		// primary key.
-		if ($this->write_connection) return;
+		//if ($this->write_connection) return;
 
 		// Loop trough current relations and attach to clone
 		$relation->get()->each(function ($foreign) use ($clone, $relation_name) {
